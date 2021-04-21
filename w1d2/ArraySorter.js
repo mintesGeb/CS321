@@ -58,12 +58,13 @@ class ArraySorter {
     this._compCount = 0;
     this._shiftCount = 0;
     this._swapCount = 0;
-    return this._bubbleSort(arr);
+    return this._bubbleSort(arr, 0, arr.length - 1);
   }
-  _bubbleSort(arr) {
-    for (let i = 0; i < arr.length - 1; i++) {
+  _bubbleSort(arr, lo, hi) {
+    let size = hi - lo + 1;
+    for (let i = 0; i < size; i++) {
       this._compCount++;
-      for (let j = 0; j <= arr.length - 2 - i; j++) {
+      for (let j = 0; j <= size - 2 - i; j++) {
         this._compCount++;
         if (arr[j] > arr[j + 1]) {
           this._swapElements(arr, j, j + 1);
@@ -77,7 +78,7 @@ class ArraySorter {
     this._compCount = 0;
     this._shiftCount = 0;
     this._swapCount = 0;
-    return this._selectionSort(arr);
+    return this._selectionSort(arr, 0, arr.length - 1);
   }
   _findMinPos(arr, start) {
     let pos = start;
@@ -93,8 +94,9 @@ class ArraySorter {
     }
     return pos;
   }
-  _selectionSort(arr) {
-    for (let i = 0; i < arr.length - 1; i++) {
+  _selectionSort(arr, lo, hi) {
+    let size = hi - lo + 1;
+    for (let i = 0; i < size; i++) {
       let minIndex = this._findMinPos(arr, i);
       this._swapElements(arr, i, minIndex);
       this._compCount++;
