@@ -131,3 +131,13 @@ function swap(arr, i, j) {
 }
 
 // swap(array1,0,1)
+
+function sortConcat(arr1, arr2){
+
+  let last =arr1.length-1;
+  for (let i=0; i<arr2.length; i++){
+    let j=i;
+    let temp=arr2[i];
+    while()
+  }
+}

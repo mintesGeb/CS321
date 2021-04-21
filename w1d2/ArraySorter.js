@@ -103,6 +103,44 @@ class ArraySorter {
     }
     return arr;
   }
+
+  _findLargestH(arr) {
+    let size = arr.length;
+    let h = 1;
+    while (size > h) {
+      h = h * 3 + 1;
+      this._compCount++;
+    }
+    h = (h - 1) / 3;
+    return h;
+  }
+  shellSort(arr) {
+    this._compCount = 0;
+    this._shiftCount = 0;
+    this._swapCount = 0;
+    return this._shellSort(arr, 0, arr.length - 1);
+  }
+  _shellSort(arr, lo, hi) {
+    let size = hi - lo + 1;
+    let h = this._findLargestH(arr);
+    while (h > 0) {
+      this._compCount++;
+      for (let i = h; i < size; i++) {
+        this._compCount++;
+        let j = i;
+        let temp = arr[i];
+        while (j > h - 1 && temp < arr[j - h]) {
+          this._compCount++;
+          arr[j] = arr[j - h];
+          j -= h;
+          this._shiftCount++;
+        }
+        arr[j] = temp;
+      }
+      h = (h - 1) / 3;
+    }
+    return arr;
+  }
 }
 
 // let x = new ArraySorter();

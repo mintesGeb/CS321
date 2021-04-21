@@ -5,6 +5,14 @@ const sorter = new test.ArraySorter();
 let arr1 = [8, 4, 6, 2, 3, 5, 1];
 let arr2 = [8, 4, 6, 2, 3, 5, 1];
 let arr3 = [8, 4, 6, 2, 3, 5, 1];
+let arr4 = [8, 4, 6, 2, 3, 5, 1];
+
+console.log("--------Shell");
+sorter.shellSort(arr4);
+sorter.print(arr4);
+console.log("comparison " + sorter.keyComparisons());
+console.log("shifting " + sorter.numShifts());
+console.log("swaps " + sorter.numSwaps());
 
 console.log("--------Bubble");
 sorter.bubbleSort(arr1);
