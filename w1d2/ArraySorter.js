@@ -103,8 +103,8 @@ class ArraySorter {
   }
 }
 
-let x = new ArraySorter();
+// let x = new ArraySorter();
 
-x.print(x.selectionSort([8, 4, 6, 2, 3, 5, 1]));
+// x.print(x.selectionSort([8, 4, 6, 2, 3, 5, 1]));
 
 exports.ArraySorter = ArraySorter;

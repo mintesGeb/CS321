@@ -1,18 +1,28 @@
 "use strict";
-const assert = require("assert");
+// const assert = require("assert");
 const test = require("./ArraySorter");
+const sorter = new test.ArraySorter();
+let arr1 = [8, 4, 6, 2, 3, 5, 1];
+let arr2 = [8, 4, 6, 2, 3, 5, 1];
+let arr3 = [8, 4, 6, 2, 3, 5, 1];
 
-describe("porcupine number", function () {
-  it("the first porcupine number is 139", function () {
-    function findPorcupineNumber(num) {}
-    assert.strictEqual(test.ArraySorter([8, 4, 6, 2, 3, 5, 1]), [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      8,
-    ]);
-  });
-});
+console.log("--------Bubble");
+sorter.bubbleSort(arr1);
+sorter.print(arr1);
+console.log("comparison " + sorter.keyComparisons());
+console.log("shifting " + sorter.numShifts());
+console.log("swaps " + sorter.numSwaps());
+
+console.log("--------Selection");
+sorter.selectionSort(arr2);
+sorter.print(arr2);
+console.log("comparison " + sorter.keyComparisons());
+console.log("shifting " + sorter.numShifts());
+console.log("swaps " + sorter.numSwaps());
+
+console.log("--------Insersion");
+sorter.insertionSort(arr3);
+sorter.print(arr3);
+console.log("comparison " + sorter.keyComparisons());
+console.log("shifting " + sorter.numShifts());
+console.log("swaps " + sorter.numSwaps());

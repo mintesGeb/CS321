@@ -1,5 +1,5 @@
 "use strict";
-let array1 = [8, 4, 6, 2, 3, 5, 1];
+let array1 = [8, 4, 6, 1, 3, 5, 2];
 
 function bubbleSort(arr) {
   for (let i = arr.length; i > 0; i--) {
@@ -33,24 +33,29 @@ function swapElements(arr, i, j) {
 //   return arr;
 // }
 // console.log(sortBubble(array1));
-
-function findMinPos(arr, start = 0) {
-  let pos = start;
-  let min = arr[pos];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < min) {
-      arr[i] = min;
-      pos = i;
-    }
-  }
-  return pos;
-}
+// 8, 4, 6, 1, 3, 5, 2
+// function findMinPos(arr, start = 0) {
+//   let pos = start;
+//   let min = arr[pos];
+//   for (let i = pos + 1; i < arr.length; i++) {
+//     if (arr[i] < min) {
+//       min = arr[i];
+//       pos = i;
+//     }
+//   }
+//   return pos;
+// }
 // console.log(findMinPos(array1));
 
-function selectionSort(arr) {
-  for(let i=0; )
-}
-
+// function selectionSort(arr) {
+//   let minPos;
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     minPos = findMinPos(arr, i);
+//     swapElements(arr, i, minPos);
+//   }
+//   return arr;
+// }
+// console.log(selectionSort(array1));
 // function findMinPos(arr, start) {
 //   let pos = start;
 //   let min = arr[pos];
@@ -63,7 +68,7 @@ function selectionSort(arr) {
 //   }
 //   return pos;
 // }
-// // console.log(findMinPos(array1, 0));
+// console.log(findMinPos(array1, 0));
 
 // function selectionSort(arr) {
 //   for (let i = 0; i < arr.length - 1; i++) {
@@ -76,20 +81,33 @@ function selectionSort(arr) {
 
 // 8, 4, 6, 2, 3, 5, 1;
 
-function insersionSort(arr) {
-  let temp;
-  let j;
-  for (let i = 1; i < arr.length; i++) {
-    temp = arr[i];
-    j = i;
-    while (j > 0 && temp < arr[j - 1]) {
-      arr[j] = arr[j - 1];
-      j = j - 1;
-      arr[j] = temp;
-    }
-  }
-  return arr;
-}
+// function insersionSort(arr) {
+//   for (let i = 1; i < arr.length; i++) {
+//     let temp = arr[i];
+//     let j = i;
+//     while (j > 0 && temp < arr[j - 1]) {
+//       arr[j] = arr[j - 1];
+//       j--;
+//     }
+//     arr[j] = temp;
+//   }
+//   return arr;
+// }
+// console.log(insersionSort(array1));
+// function insersionSort(arr) {
+//   let temp;
+//   let j;
+//   for (let i = 1; i < arr.length; i++) {
+//     temp = arr[i];
+//     j = i;
+//     while (j > 0 && temp < arr[j - 1]) {
+//       arr[j] = arr[j - 1];
+//       j = j - 1;
+//     }
+//      arr[j] = temp;
+//   }
+//   return arr;
+// }
 
 // console.log(insersionSort(array1));
 
