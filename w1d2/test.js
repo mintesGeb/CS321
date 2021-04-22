@@ -16,21 +16,21 @@ console.log("swaps " + sorter.numSwaps());
 // console.log(sorter._findLargestH(arr1, 2, 8));
 
 console.log("--------Bubble");
-sorter.bubbleSort(arr1);
+sorter._bubbleSort(arr1, 1, 5);
 sorter.print(arr1);
 console.log("comparison " + sorter.keyComparisons());
 console.log("shifting " + sorter.numShifts());
 console.log("swaps " + sorter.numSwaps());
 
 console.log("--------Selection");
-sorter.selectionSort(arr2);
+sorter._selectionSort(arr2, 1, 5);
 sorter.print(arr2);
 console.log("comparison " + sorter.keyComparisons());
 console.log("shifting " + sorter.numShifts());
 console.log("swaps " + sorter.numSwaps());
 
 console.log("--------Insersion");
-sorter.insertionSort(arr3);
+sorter._insertionSort(arr3, 1, 5);
 sorter.print(arr3);
 console.log("comparison " + sorter.keyComparisons());
 console.log("shifting " + sorter.numShifts());
