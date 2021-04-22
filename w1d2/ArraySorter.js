@@ -104,8 +104,8 @@ class ArraySorter {
     return arr;
   }
 
-  _findLargestH(arr) {
-    let size = arr.length;
+  _findLargestH(arr, lo, hi) {
+    let size = hi - lo;
     let h = 1;
     while (size > h) {
       h = h * 3 + 1;
@@ -122,14 +122,14 @@ class ArraySorter {
   }
   _shellSort(arr, lo, hi) {
     let size = hi - lo + 1;
-    let h = this._findLargestH(arr);
+    let h = this._findLargestH(arr, lo, hi);
     while (h > 0) {
       this._compCount++;
-      for (let i = h; i < size; i++) {
+      for (let i = h + lo; i < size; i++) {
         this._compCount++;
         let j = i;
         let temp = arr[i];
-        while (j > h - 1 && temp < arr[j - h]) {
+        while (j > lo + h - 1 && temp < arr[j - h]) {
           this._compCount++;
           arr[j] = arr[j - h];
           j -= h;

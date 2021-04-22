@@ -8,11 +8,12 @@ let arr3 = [8, 4, 6, 2, 3, 5, 1];
 let arr4 = [8, 4, 6, 2, 3, 5, 1];
 
 console.log("--------Shell");
-sorter.shellSort(arr4);
+sorter._shellSort(arr4, 1, 5);
 sorter.print(arr4);
 console.log("comparison " + sorter.keyComparisons());
 console.log("shifting " + sorter.numShifts());
 console.log("swaps " + sorter.numSwaps());
+// console.log(sorter._findLargestH(arr1, 2, 8));
 
 console.log("--------Bubble");
 sorter.bubbleSort(arr1);

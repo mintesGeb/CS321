@@ -131,13 +131,41 @@ function swap(arr, i, j) {
 }
 
 // swap(array1,0,1)
+let array3 = [3, 5, 7, 9, 11];
+let array4 = [2, 4, 6, 8, 10, 12, 14];
 
-function sortConcat(arr1, arr2){
+function sortConcat(arr1, arr2) {
+  for (let i = 0; i < arr2.length; i++) {
+    arr1.push(arr2[i]);
 
-  let last =arr1.length-1;
-  for (let i=0; i<arr2.length; i++){
-    let j=i;
-    let temp=arr2[i];
-    while()
+    let j = arr1.length - 1;
+    let temp = arr1[j];
+
+    while (j >= 0 && temp < arr1[j - 1]) {
+      arr1[j] = arr1[j - 1];
+      j--;
+    }
+    arr1[j] = temp;
   }
+  return arr1;
 }
+console.log(sortConcat(array3, array4));
+
+/*
+Algorithm Merge(arr1,arr2)
+  n<-arr2.length
+
+  for i<-0 to n-1 do    
+    arr1.push(arr[i])
+    j<-arr1.length-1
+    temp<- arr1[j]
+    
+    while j>=0 && temp< arr1[j-1]
+      arr1[j]<-arr[j-1]
+      j<-j-1
+    
+    arr[j]<-temp
+  
+  return arr1
+
+*/
