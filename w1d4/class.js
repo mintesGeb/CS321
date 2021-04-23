@@ -94,17 +94,39 @@ console.log(max([1, 2, 3, 8, 4, 9]));
 //   if arr[index]  > toCheck then return arr[index]
 //   else return toCheck
 
-function binarySearh(arr, n, lo, hi = arr.length - 1) {
-  let mid = Math.floor(hi - lo + 1 / 2);
+// function binarySearh(arr, n, lo, hi = arr.length - 1) {
+//   let mid = Math.floor(hi - lo + 1 / 2);
 
-  if (arr[mid] === n) {
-    return mid;
-  } else if (arr[mid] > n) {
-    hi = mid - 1;
-    return binarySearh(arr, n, lo, hi);
+//   if (arr[mid] === n) {
+//     return mid;
+//   } else if (arr[mid] > n) {
+//     hi = mid - 1;
+//     return binarySearh(arr, n, lo, hi);
+//   } else {
+//     lo = mid + 1;
+//     return binarySearh(arr, n, lo, hi);
+//   }
+// }
+
+function binarySearch(arr, n, lo, hi = arr.length) {
+  let mid = Math.floor(hi - lo + 1 / 2);
+  if (n === arr[mid]) return mid;
+  else if (n > arr[mid]) {
+    return binarySearch(arr, n, mid + 1);
   } else {
-    lo = mid + 1;
-    return binarySearh(arr, n, lo, hi);
+    return binarySearch(arr, n, lo, mid - 1);
   }
 }
-// console.log(binarySearh([1, 3, 4, 5, 6, 8, 9], 8, 0));
+console.log(binarySearch([1, 3, 4, 5, 6, 8, 9], 9, 0));
+
+function sum2(arr) {
+  let i = arr.length - 1;
+  let sum = 0;
+  while (arr[i] > 0) {
+    sum += arr[i];
+    i--;
+  }
+  return sum;
+}
+
+console.log(sum2([0, 0, 0, 1, 1, 1]));
