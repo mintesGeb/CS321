@@ -50,7 +50,7 @@ function sumHelper(arr, index) {
   }
   return arr[index] + sumHelper(arr, index + 1);
 }
-console.log(sum([1, 2, 3, 4]));
+// console.log(sum([1, 2, 3, 4]));
 
 // Algorithm sum(arr)
 //  input: array to add elements from
@@ -78,7 +78,7 @@ function maxhelper(arr, index) {
   else return toCheck;
   // return arr[index] > toCheck ? arr[index] : toCheck;
 }
-console.log(max([1, 2, 3, 8, 4, 9]));
+// console.log(max([1, 2, 3, 8, 4, 9]));
 
 // Algorithm findMax(arr)
 //   input: array to check max value FormData
@@ -117,16 +117,126 @@ function binarySearch(arr, n, lo, hi = arr.length) {
     return binarySearch(arr, n, lo, mid - 1);
   }
 }
-console.log(binarySearch([1, 3, 4, 5, 6, 8, 9], 9, 0));
+// console.log(binarySearch([1, 3, 4, 5, 6, 8, 9], 9, 0));
 
-function sum2(arr) {
-  let i = arr.length - 1;
-  let sum = 0;
-  while (arr[i] > 0) {
-    sum += arr[i];
-    i--;
+// function sum2(arr) {
+//   let i = arr.length - 1;
+//   let sum = 0;
+//   while (arr[i] > 0) {
+//     sum += arr[i];
+//     i--;
+//   }
+//   return sum;
+// }
+function sum2Helper(arr, lo, hi = arr.length) {
+  let mid = Math.floor((hi - lo + 1) / 2);
+  while (lo < hi) {
+    if (arr[mid] === 0) {
+      if (arr[mid + 1] === 0) {
+        lo = mid;
+        sum2Helper(arr, lo, hi);
+      } else return [mid + 1, hi];
+    } else if (arr[mid] === 1) {
+      if (arr[mid - 1] === 1) {
+        hi = mid + 1;
+        sum2Helper(arr, lo, hi);
+      }
+    }
   }
-  return sum;
+  return [mid, hi];
 }
 
-console.log(sum2([0, 0, 0, 1, 1, 1]));
+// console.log(sum2Helper([0, 0, 0, 0, 0, 0, 1, 1, 1], 0));
+
+arr1 = [2, 4, 6, 7];
+arr2 = [1, 3, 5];
+
+function merge(arr1, arr2) {
+  let newArr = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      newArr.push(arr1[i]);
+      i++;
+    } else {
+      newArr.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    newArr.push(arr1[i]);
+    i++;
+  }
+  while (j < arr2.length) {
+    newArr.push(arr2[j]);
+    j++;
+  }
+  return newArr;
+}
+// console.log(merge(arr1, arr2));
+
+function mergeSort(arr) {
+  // if (arr.length <= 1) return arr;
+  console.log(arr.length);
+  if (arr.length <= 20) return insertionSort(arr);
+
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  console.log(left, right);
+  return merge(left, right);
+}
+console.log(
+  mergeSort([
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    12,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    25,
+    19,
+    3,
+    6,
+    8,
+    2,
+    7,
+    21,
+    17,
+    4,
+    10,
+    18,
+    9,
+    20,
+  ])
+);
+
+function insertionSort(arr) {
+  let j, temp;
+  for (let i = 1; i < arr.length; i++) {
+    j = i;
+    temp = arr[j];
+    while (j > 0 && temp < arr[j - 1]) {
+      arr[j] = arr[j - 1];
+      j--;
+    }
+    arr[j] = temp;
+  }
+  return arr;
+}
+// console.log(insertionSort([1, 5, 3, 6, 8, 2, 7, 4]));
+
+// let x = Math.floor(Math.random() * 30) + 1;
+// let y = [];
+// setInterval(y.push(setInterval(x, 1000)), 1000);
