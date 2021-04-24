@@ -43,13 +43,14 @@ class ArraySorter {
     for (let i = 1 + lo; i < size; i++) {
       let k = i;
       let temp = arr[k];
-      this._compCount++;
+
       while (lo < k && temp < arr[k - 1]) {
         arr[k] = arr[k - 1]; // shift right
         k--;
         this._compCount++;
         this._shiftCount++;
       }
+      this._compCount++; //to count the one time the while becomes false
       arr[k] = temp; // place in sorted position
     }
     return arr;
@@ -63,12 +64,11 @@ class ArraySorter {
   _bubbleSort(arr, lo, hi) {
     let size = hi - lo + 1;
     for (let i = lo; i < size; i++) {
-      this._compCount++;
       for (let j = lo; j <= size - 2 - i; j++) {
-        this._compCount++;
+        this._compCount++; //not inside if statement and for loop by itself not counted for comparison
+
         if (arr[j] > arr[j + 1]) {
           this._swapElements(arr, j, j + 1);
-          this._compCount++;
         }
       }
     }
@@ -90,7 +90,6 @@ class ArraySorter {
       if (min > arr[i]) {
         pos = i;
         min = arr[pos];
-        this._compCount++;
       }
     }
     return pos;
@@ -100,7 +99,6 @@ class ArraySorter {
     for (let i = lo; i < size; i++) {
       let minIndex = this._findMinPos(arr, i);
       this._swapElements(arr, i, minIndex);
-      this._compCount++;
     }
     return arr;
   }
