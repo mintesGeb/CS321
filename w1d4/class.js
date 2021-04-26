@@ -187,40 +187,40 @@ function mergeSort(arr) {
   console.log(left, right);
   return merge(left, right);
 }
-console.log(
-  mergeSort([
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    12,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    25,
-    19,
-    3,
-    6,
-    8,
-    2,
-    7,
-    21,
-    17,
-    4,
-    10,
-    18,
-    9,
-    20,
-  ])
-);
+// console.log(
+//   mergeSort([
+//     1,
+//     1,
+//     1,
+//     1,
+//     1,
+//     1,
+//     1,
+//     1,
+//     12,
+//     2,
+//     2,
+//     2,
+//     2,
+//     2,
+//     2,
+//     2,
+//     25,
+//     19,
+//     3,
+//     6,
+//     8,
+//     2,
+//     7,
+//     21,
+//     17,
+//     4,
+//     10,
+//     18,
+//     9,
+//     20,
+//   ])
+// );
 
 function insertionSort(arr) {
   let j, temp;
@@ -240,3 +240,33 @@ function insertionSort(arr) {
 // let x = Math.floor(Math.random() * 30) + 1;
 // let y = [];
 // setInterval(y.push(setInterval(x, 1000)), 1000);
+
+// function findMax(arr) {
+//   return findMaxHelper(arr, 0);
+// }
+
+// function findMaxHelper(arr, i) {
+//   if (i === arr.length - 1) return 0;
+
+//   let result = findMaxHelper(arr, i + 1);
+//   return arr[i] > result ? arr[i] : result;
+// }
+
+// console.log(findMax([5, 87, 9, 4, 5, 7, 8]));
+
+let biArr = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1];
+
+function binarySum(arr) {
+  return binarySumHelper(arr, 0, arr.length - 1);
+}
+
+function binarySumHelper(arr, lo, hi) {
+  if (lo > hi) return 0;
+  let mid = Math.floor(hi - lo + 1 / 2);
+  if (arr[mid] === 0) {
+    return binarySumHelper(arr, mid + 1, hi);
+  } else {
+    return hi - mid + 1 + binarySumHelper(arr, 0, mid - 1);
+  }
+}
+console.log(binarySum(biArr));
