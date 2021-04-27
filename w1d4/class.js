@@ -174,7 +174,7 @@ function merge(arr1, arr2) {
   }
   return newArr;
 }
-// console.log(merge(arr1, arr2));
+console.log(merge(arr1, arr2));
 
 function mergeSort(arr) {
   // if (arr.length <= 1) return arr;
@@ -269,4 +269,4 @@ function binarySumHelper(arr, lo, hi) {
     return hi - mid + 1 + binarySumHelper(arr, 0, mid - 1);
   }
 }
-console.log(binarySum(biArr));
+// console.log(binarySum(biArr));
