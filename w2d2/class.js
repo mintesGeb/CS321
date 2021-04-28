@@ -1,17 +1,22 @@
 "use strict";
 
-function inPlaceQuickSort(arr, l = 0, r = arr.length - 1) {
-  if (l >= r) return;
-  let k = randomInt(l, r);
+let array = [2, 1, 6, 4, 9, 7, 8, 5];
+inPlaceQuickSort(array, 0, 7);
 
-  swap(arr, r, k);
-  let p = arr[r];
+console.log(array);
+
+function inPlaceQuickSort(arr, l, r) {
+  if (l >= r) return;
+  // if (arr.length === 1) return arr;
+  // let pivot = randomInt(l, r);
+  let pivot = 0;
+  let p = arr[pivot];
+  console.log(p);
+  swap(arr, r, pivot);
   let i = inPlacePartition(arr, l, r, p);
   inPlaceQuickSort(arr, l, i - 1);
   inPlaceQuickSort(arr, i + 1, r);
-  return arr;
 }
-
 function inPlacePartition(arr, l, r, p) {
   let i = l;
   let j = r - 1;
@@ -25,25 +30,70 @@ function inPlacePartition(arr, l, r, p) {
     if (i <= j) {
       swap(arr, i, j);
       i++;
-      j--;
-    } else break;
+      j++;
+    } else {
+      break;
+    }
   }
   swap(arr, i, r);
-  //   console.log(i);
+
   return i;
 }
 
+function pivotPicker1(l, r) {
+  return Math.floor(Math.random() * r - l + 1) + 1;
+}
 function swap(arr, i, j) {
   let temp = arr[i];
   arr[i] = arr[j];
   arr[j] = temp;
 }
 
+// ------------
+// function inPlaceQuickSort(arr, l = 0, r = arr.length - 1) {
+//   if (l >= r) return;
+//   let k = randomInt(l, r);
+
+//   swap(arr, r, k);
+//   let p = arr[r];
+//   let i = inPlacePartition(arr, l, r, p);
+//   inPlaceQuickSort(arr, l, i - 1);
+//   inPlaceQuickSort(arr, i + 1, r);
+//   return arr;
+// }
+
+// function inPlacePartition(arr, l, r, p) {
+//   let i = l;
+//   let j = r - 1;
+//   while (true) {
+//     while (arr[i] < p && i <= j) {
+//       i++;
+//     }
+//     while (arr[j] > p && i <= j) {
+//       j--;
+//     }
+//     if (i <= j) {
+//       swap(arr, i, j);
+//       i++;
+//       j--;
+//     } else break;
+//   }
+//   swap(arr, i, r);
+//   //   console.log(i);
+//   return i;
+// }
+
+// function swap(arr, i, j) {
+//   let temp = arr[i];
+//   arr[i] = arr[j];
+//   arr[j] = temp;
+// }
+
 function randomInt(l, r) {
-  return Math.floor(Math.random() * (r - l + 1));
+  return Math.floor(Math.random() * (r - l + 1)) + 1;
 }
-let array = [2, 1, 6, 4, 9, 7, 8, 5];
-inPlaceQuickSort(array, 0, 7);
+// let array = [2, 1, 6, 4, 9, 7, 8, 5];
+// inPlaceQuickSort(array, 0, 7);
 
 // console.log(array);
 
@@ -190,4 +240,4 @@ function partition(arr, lo, hi, p) {
   return { l, g, e };
 }
 
-console.log(findSecondMin(array3));
+// console.log(findSecondMin(array3));
