@@ -45,7 +45,7 @@ function findPerfectSquare(arr) {
   }
   return ps;
 }
-console.log(findPerfectSquare(array3));
+// console.log(findPerfectSquare(array3));
 
 function radixSort(arr) {
   let radix = Math.sqrt(findPerfectSquare(arr));
@@ -62,8 +62,9 @@ function radixSort(arr) {
     let rem = arr[i] % radix;
     remArr[rem].push(arr[i]);
   }
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < remArr[i]; j++) {
+
+  for (let i = 0; i < remArr.length; i++) {
+    for (let j = 0; j < remArr[i].length; j++) {
       let quo = Math.floor(remArr[i][j] / radix);
       quoArr[quo].push(remArr[i][j]);
     }
@@ -75,6 +76,6 @@ function radixSort(arr) {
     }
   }
 
-  return remArr;
+  return sorted;
 }
 console.log(radixSort(array3));
