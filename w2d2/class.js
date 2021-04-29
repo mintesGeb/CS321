@@ -136,7 +136,7 @@ function bucketList(arr) {
       max = arr[i];
     }
   }
-
+  // console.log(max);
   let bucket1 = [];
   let bucket2 = [];
   for (let i = 0; i <= max; i++) {
@@ -147,7 +147,8 @@ function bucketList(arr) {
   for (let i = 0; i < arr.length; i++) {
     bucket1[arr[i]]++;
   }
-  // step3 O(m+n)
+
+  // // step3 O(m+n)
   for (let i = 0; i < bucket1.length; i++) {
     if (bucket1[i] === 1) {
       bucket2.push(i);
@@ -159,7 +160,7 @@ function bucketList(arr) {
   }
   return bucket2;
 }
-// console.log(bucketList(array2));
+console.log(bucketList(array2));
 
 let array3 = [48, 1, 6, 23, 37, 23, 19, 21];
 
@@ -188,7 +189,7 @@ function radixSort(arr) {
     quoArr[i] = [];
   }
   for (let i = 0; i < arr.length; i++) {
-    let rem = arr[i] % radix;
+    let rem = arr[i] % radix;v
     remArr[rem].push(arr[i]);
   }
   for (let i = 0; i < arr.length; i++) {
