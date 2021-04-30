@@ -5,7 +5,6 @@ class Node {
     // inserts this new node between prev and next
     this._elem = elem;
     this._prev = prev;
-    5;
     this._next = next;
     if (prev != null) {
       prev._next = this;
