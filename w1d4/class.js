@@ -262,7 +262,7 @@ function binarySum(arr) {
 
 function binarySumHelper(arr, lo, hi) {
   if (lo > hi) return 0;
-  let mid = Math.floor(hi - lo + 1 / 2);
+  let mid = Math.floor((hi - lo + 1) / 2);
   if (arr[mid] === 0) {
     return binarySumHelper(arr, mid + 1, hi);
   } else {
