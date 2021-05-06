@@ -110,16 +110,31 @@ class HashMap {
 
       hashcode += charCode * Math.pow(2, index);
     }
-    console.log(hashcode);
+
     return hashcode;
   }
   _getIndex(key) {
     const hashcode = this._hash(key);
     // const index = hashcode % this._table.length;
     const index = (2 * hashcode + 5) % this._table.length;
-    console.log(index);
+
     return index;
   }
+  removeDup(list) {
+    list = new HashMap();
+    for (let i = 0; i < this._table.length; i++) {
+      let eachList = this._table[i];
+      let iter = eachList.elements();
+      while (iter.hasNext()) {
+        let ele = iter.nextObject();
+        if (!list.contains(ele.key())) {
+          list.put(ele.key(), ele.value());
+        }
+      }
+    }
+    return list;
+  }
+  checkForSum(list, z) {}
 }
 
 exports.HashMap = HashMap;
