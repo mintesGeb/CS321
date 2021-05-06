@@ -134,7 +134,31 @@ class HashMap {
     }
     return list;
   }
-  checkForSum(list, z) {}
+  checkForSum(list, z) {
+    for (let i = 0; i <= this._table.length; i++) {
+      let eachList = this._table[i];
+      let iter = eachList.elements();
+      while (iter.hasNext()) {
+        let ele = iter.nextObject();
+        if (list._find(z - ele.value())) {
+          console.log(ele.key(), list._find(z - ele.value()));
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+  _find(value) {
+    for (let i = 0; i < this._table.length; i++) {
+      let eachList = this._table[i];
+      let iter = eachList.elements();
+      while (iter.hasNext()) {
+        let ele = iter.nextObject();
+        if (ele.value() == value) return ele.key();
+      }
+    }
+    return false;
+  }
 }
 
 exports.HashMap = HashMap;
