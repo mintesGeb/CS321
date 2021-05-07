@@ -71,7 +71,7 @@ class BinarySearchTree extends Tree.BinaryTree {
         } else {
             this.remove(r);
         }
-        return r.element().value();
+        return r.element().value(); 
     }
     findElement(k) {
         if (this.isEmpty()) { // key k is not in the BST
