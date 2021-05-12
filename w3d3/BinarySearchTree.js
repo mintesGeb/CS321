@@ -4,7 +4,7 @@ const Iter = require('./BinaryTreeIterator.js');
 
 class BinarySearchTree extends Tree.BinaryTree {
     constructor() {
-        super();
+        super(); 
     }
     compareKeys(key1, key2) {
         return key1 - key2;
@@ -13,7 +13,7 @@ class BinarySearchTree extends Tree.BinaryTree {
         return super.replaceElement(p, item);
     }
     swapItems(p, q) {
-        super.swapElements(p, q);
+        super.swapElements(p, q); 
     }
     _findPosition(k, p) {
         let diff = this.compareKeys(k, p.element().key());

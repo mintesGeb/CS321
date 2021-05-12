@@ -1,6 +1,16 @@
 "use strict";
 const HashList = require("./HashMap.js");
 const ht = new HashList.HashMap();
+// function hashcode(key){
+//     return hashcode;
+// }
+// function hashvalue(hashcode){
+//     return hashvalue;
+// }
+// function hashTable(size){
+//     let newArray=new Array(size);
+
+// }
 // function hash(key, arrayLen) {
 //   let total = 0;
 //   let weird_Prime = 31;
