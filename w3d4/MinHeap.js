@@ -13,7 +13,7 @@ class MinHeap {
         this._heap = new Array();
         this._compare = comparator;
         this._compCount = 0;
-        this._swapCount = 0;
+        this._swapCount = 0; 
     }
     isEmpty() {
         return this._size == 0;
